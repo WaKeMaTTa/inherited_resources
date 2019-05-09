@@ -44,6 +44,23 @@ Or install it yourself with:
 $ gem install inherited_resources
 ```
 
+## Configuration
+
+If you want to configure the gem, create a file in `config/initializers/inherited_resources.rb`
+with this content:
+
+```ruby
+# frozen_string_literal: true
+
+InheritedResources.setup do |config|
+  # ==> Controller configuration
+  # Configure the parent class to the inherited_resources controllers.
+  # config.parent_controller = 'InheritedResourcesController'
+end
+```
+
+Then configure it at your will.
+
 ## HasScope
 
 Since Inherited Resources 1.0, has_scope is not part of its core anymore but

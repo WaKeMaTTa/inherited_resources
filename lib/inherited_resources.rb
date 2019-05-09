@@ -19,6 +19,17 @@ module InheritedResources
   autoload :UrlHelpers,         'inherited_resources/url_helpers'
   autoload :VERSION,            'inherited_resources/version'
 
+  # The parent controller of all InheritedResources controllers inherits from.
+  # Defaults to ApplicationController. This should be set early
+  # in the initialization process and should be set to a string.
+  mattr_accessor :parent_controller
+  @@parent_controller = '::ApplicationController'
+
+  # Default way to set up InheritedResources.
+  def self.setup
+    yield self
+  end
+
   # Change the flash keys used by FlashResponder.
   def self.flash_keys=(array)
     Responders::FlashResponder.flash_keys = array
